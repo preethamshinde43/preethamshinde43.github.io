@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preetham S Shinde — Full-Stack Developer</title>
+<meta name="description" content="Preetham S Shinde — Computer Science student and full-stack developer (React, Python, Flask, MySQL, Supabase). Open to internships.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Preetham S Shinde — Full-Stack Developer">
+<meta property="og:description" content="Computer Science student building React + Python web apps. Open to full-stack internships.">
+<meta name="theme-color" content="#151a22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#151a22;--bg-raised:#1c222c;--ink:#eef0ec;--ink-dim:#9aa3ab;--line:#2b333f;
+    --accent:#e8a33d;--accent-soft:#4fb8a6;
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+    box-sizing:border-box;
+  }
+  :root:not([data-theme="light"]){color-scheme:dark;}
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;}
+  html,body{height:100%;}
+  body{
+    margin:0;color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 88% -6%,rgba(232,163,61,.16),transparent 62%),
+      radial-gradient(800px 560px at -8% 34%,rgba(79,184,166,.13),transparent 62%),
+      radial-gradient(700px 500px at 100% 82%,rgba(232,163,61,.09),transparent 62%),
+      var(--bg);
+    background-attachment:fixed;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);
+    background-size:26px 26px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 25%,#000 25%,transparent 80%);
+    mask-image:radial-gradient(ellipse 80% 70% at 50% 25%,#000 25%,transparent 80%);
+  }
+  ::selection{background:var(--accent);color:#151a22;}
+  a{color:inherit;}
+  .wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 24px;}
+
+  header.top{
+    position:sticky;top:0;top:env(safe-area-inset-top,0px);
+    background:rgba(21,26,34,.9);backdrop-filter:blur(6px);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 24px;border-bottom:1px solid var(--line);
+    max-width:760px;margin:0 auto;z-index:10;
+  }
+  .mark{font-family:'JetBrains Mono',monospace;font-size:15px;text-decoration:none;}
+  .mark span{color:var(--accent);}
+  nav.top-nav{display:flex;gap:20px;font-family:'JetBrains Mono',monospace;font-size:12px;}
+  nav.top-nav a{color:var(--ink-dim);text-decoration:none;}
+  nav.top-nav a:hover{color:var(--accent);}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  .hero h1.name{
+    font-weight:700;font-size:clamp(40px,9vw,72px);line-height:1.05;letter-spacing:-.03em;
+    margin:0 0 20px 0;
+    background:linear-gradient(90deg,var(--ink) 0%,var(--ink) 55%,var(--accent) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+  .hero h2.lead{
+    font-family:'JetBrains Mono',monospace;font-weight:500;
+    font-size:clamp(22px,4.2vw,32px);line-height:1.35;margin:0 0 16px 0;letter-spacing:-.01em;
+  }
+  .hero h2.lead .cursor{display:inline-block;width:.5em;height:1em;background:var(--accent);vertical-align:text-bottom;margin-left:2px;animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .hero p{color:var(--ink-dim);max-width:58ch;font-size:16px;margin:0 0 26px 0;}
+  .hero .links{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{font-family:'JetBrains Mono',monospace;font-size:13px;padding:10px 16px;border-radius:3px;text-decoration:none;border:1px solid var(--line);}
+  button.btn{background:transparent;color:var(--ink);cursor:pointer;}
+  .btn[hidden]{display:none;}
+  .btn.primary{background:var(--accent);color:#151a22;border-color:var(--accent);font-weight:500;}
+  .btn:not(.primary):hover{border-color:var(--accent);color:var(--accent);}
+
+  .badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-soft);border:1px solid var(--accent-soft);border-radius:20px;padding:6px 14px;margin-bottom:22px;}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-soft);animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  @media (prefers-reduced-motion:reduce){.hero h2.lead .cursor,.badge .dot{animation:none;}}
+
+  h2.section-title{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--ink-dim);margin:0 0 28px 0;}
+  h2.section-title em{color:var(--accent);font-style:normal;}
+  h3.sub{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--accent-soft);margin:34px 0 16px 0;}
+
+  .project{
+    padding:26px;margin-bottom:18px;
+    background:linear-gradient(160deg,rgba(32,39,50,.85),rgba(21,26,34,.55));
+    border:1px solid var(--line);border-radius:12px;
+    transition:border-color .2s,transform .2s,box-shadow .2s;
+  }
+  .project:hover{border-color:rgba(232,163,61,.55);transform:translateY(-2px);box-shadow:0 14px 34px -16px rgba(232,163,61,.3);}
+  @media (prefers-reduced-motion:reduce){.project{transition:none;}.project:hover{transform:none;}}
+  .project h3{margin:0;font-size:18px;font-weight:600;}
+  .project p.tagline{margin:6px 0 10px 0;color:var(--ink-dim);font-size:14.5px;max-width:60ch;}
+  .project ul{margin:8px 0 0 0;padding-left:18px;color:var(--ink-dim);font-size:14.5px;}
+  .project ul li{margin-bottom:5px;}
+  .project ul li strong{color:var(--ink);font-weight:600;}
+  .project.compact{padding:18px 22px;}
+  .project.compact h3{font-size:16px;}
+  .project.compact p.tagline{margin:4px 0 0 0;}
+  .stack{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .stack span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);background:var(--bg-raised);border:1px solid var(--line);padding:3px 8px;border-radius:3px;}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;}
+  .skills-cat h4{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-soft);margin:0 0 10px 0;font-weight:500;}
+  .skills-cat .tags{display:flex;flex-wrap:wrap;gap:7px;}
+  .skills-cat .tags span{font-size:13px;color:var(--ink-dim);background:var(--bg-raised);border:1px solid var(--line);padding:4px 9px;border-radius:3px;}
+
+  .about p{max-width:62ch;color:var(--ink-dim);font-size:16px;margin:0 0 14px 0;}
+  .about strong{color:var(--ink);font-weight:600;}
+  .edu{list-style:none;margin:0;padding:0;font-size:15px;color:var(--ink-dim);}
+  .edu li{padding:10px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;}
+  .edu li strong{color:var(--ink);font-weight:600;}
+  .lang-row{display:flex;gap:18px;margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-dim);flex-wrap:wrap;}
+  .lang-row span strong{color:var(--ink);}
+
+  footer{padding:40px 0 56px 0;}
+  footer p{color:var(--ink-dim);font-size:15px;max-width:56ch;margin:0 0 20px 0;}
+  .contact-links{display:flex;gap:20px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:14px;}
+  .contact-links a{text-decoration:none;color:var(--ink-dim);}
+  .contact-links a:hover{color:var(--accent);}
+  .fineprint{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);opacity:.6;margin-top:36px;}
+
+  @media (max-width:600px){
+    section{padding:40px 0;}
+    header.top{padding:18px 20px;}
+    nav.top-nav{gap:12px;font-size:11px;}
+    .project{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="mark" href="#top">Preetham <span>S</span> Shinde</a>
+  <nav class="top-nav">
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <section class="hero" id="top">
+    <h1 class="name">Preetham S Shinde</h1>
+    <div class="badge"><span class="dot"></span>Open to full-stack internships</div>
+    <h2 class="lead">Full-stack developer building React + Python web apps, from database to dashboard.<span class="cursor"></span></h2>
+    <p>B.E. Computer Science student at Saptagiri NPS University (graduating 2028) who builds complete web applications: React frontends, Flask and Python backends, and SQL databases like MySQL and Supabase. My projects add computer vision and data analytics on top, from an AI attendance system to a supply chain analytics dashboard.</p>
+    <div class="links">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="#work">View projects</a>
+      <a class="btn" href="Preetham_S_Shinde_Resume.pdf" download>↓ Download resume</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2 class="section-title">Selected <em>projects</em></h2>
+
+    <div class="project">
+      <h3>Absentia — AI-Based Attendance Management System</h3>
+      <p class="tagline">A complete attendance platform: teacher dashboard, backend API, database and face recognition.</p>
+      <ul>
+        <li>Built the full stack: <strong>React</strong> teacher dashboard, <strong>Flask/Python</strong> backend and a <strong>MySQL/Supabase</strong> database</li>
+        <li>Backend handles session management and attendance records with timestamps and subject tracking</li>
+        <li>Real-time face recognition with <strong>OpenCV</strong>, with QR code and RFID as fallback identification methods</li>
+        <li>Dashboard shows live present/absent counts and automatic attendance percentages</li>
+        <li>Student alerts when attendance drops below a threshold, plus monthly and subject-wise reports</li>
+        <li><strong>Impact:</strong> attendance marking time cut from 10+ minutes per class to seconds</li>
+      </ul>
+      <div class="stack"><span>React</span><span>Flask</span><span>Python</span><span>MySQL</span><span>Supabase</span><span>OpenCV</span></div>
+    </div>
+
+    <div class="project">
+      <h3>Inventory and Supply Chain Analytics System</h3>
+      <p class="tagline">A full-stack web app for inventory management, demand forecasting and supply chain analytics.</p>
+      <ul>
+        <li>Flask backend serving inventory data and analytics to an interactive web interface</li>
+        <li><strong>Pandas</strong> ETL pipeline for automated inventory data transformation</li>
+        <li>Machine learning models for predictive inventory analysis and demand forecasting</li>
+        <li>Interactive <strong>Plotly</strong> heatmaps and dashboards that surface trends and supply chain inefficiencies</li>
+      </ul>
+      <div class="stack"><span>Flask</span><span>Python</span><span>Pandas</span><span>Plotly</span><span>Machine Learning</span></div>
+    </div>
+
+    <div class="project">
+      <h3>AI-Based Traffic Junction Optimization System</h3>
+      <p class="tagline">Traffic signal and routing optimization for mixed-traffic conditions, with a live monitoring dashboard.</p>
+      <ul>
+        <li>Python analysis of traffic patterns, with <strong>Dijkstra's algorithm</strong> for route calculation and congestion management</li>
+        <li>Dynamic signal priority based on real-time traffic density and historical patterns</li>
+        <li>Emergency vehicle detection with priority routing for faster response</li>
+        <li><strong>React</strong> dashboard for real-time traffic monitoring and signal visualization</li>
+      </ul>
+      <div class="stack"><span>React</span><span>Python</span><span>Dijkstra's Algorithm</span><span>Data Analysis</span></div>
+    </div>
+
+    <h3 class="sub">// more projects</h3>
+
+    <div class="project compact">
+      <h3>POP Works — Professional Website</h3>
+      <p class="tagline">Responsive React website built from reusable components, with a focus on accessibility and performance. Version-controlled with Git and GitHub. In progress.</p>
+      <div class="stack"><span>React</span><span>Responsive Design</span><span>Git</span></div>
+    </div>
+
+    <div class="project compact">
+      <h3>Minimum Spanning Tree Algorithm Visualizer</h3>
+      <p class="tagline">Interactive 3D visualizer for Kruskal's and Prim's algorithms, with step-by-step execution and Union-Find cycle detection.</p>
+      <div class="stack"><span>React</span><span>JavaScript</span><span>3D Visualization</span></div>
+    </div>
+
+    <div class="project compact">
+      <h3>Spotify Distributed Recommendation System</h3>
+      <p class="tagline">Music recommendation engine using collaborative filtering, with distributed computing concepts for large datasets.</p>
+      <div class="stack"><span>Python</span><span>Machine Learning</span><span>Collaborative Filtering</span></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Technical <em>skills</em></h2>
+    <div class="skills-grid">
+      <div class="skills-cat"><h4>Frontend</h4><div class="tags"><span>React</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Responsive Design</span></div></div>
+      <div class="skills-cat"><h4>Backend</h4><div class="tags"><span>Flask</span><span>Python</span><span>Node.js</span></div></div>
+      <div class="skills-cat"><h4>Databases</h4><div class="tags"><span>MySQL</span><span>Supabase</span><span>SQL</span><span>Database Design</span></div></div>
+      <div class="skills-cat"><h4>Languages</h4><div class="tags"><span>Python</span><span>JavaScript</span><span>Java</span><span>C</span></div></div>
+      <div class="skills-cat"><h4>Tools</h4><div class="tags"><span>Git</span><span>GitHub</span><span>VS Code</span></div></div>
+      <div class="skills-cat"><h4>Data &amp; AI</h4><div class="tags"><span>OpenCV</span><span>TensorFlow</span><span>Pandas</span><span>Plotly</span><span>Machine Learning</span></div></div>
+      <div class="skills-cat"><h4>CS Fundamentals</h4><div class="tags"><span>Data Structures</span><span>Algorithms</span><span>Operating Systems</span><span>Computer Networks</span></div></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-title">About</h2>
+    <p>I'm a Computer Science student who likes building <strong>complete web applications end to end</strong>: React on the front, Flask and Python on the back, MySQL or Supabase for the data. I've also worked with computer vision and machine learning, but what I enjoy most is turning a real-world problem into a working product.</p>
+    <p>Underneath that is a solid grounding in data structures, algorithms, databases, operating systems and computer networks, sharpened by competitive programming.</p>
+
+    <h3 class="sub">// education</h3>
+    <ul class="edu">
+      <li><span><strong>B.E. in Computer Science</strong> — Saptagiri NPS University</span><span>Expected 2028 · CGPA 8.9</span></li>
+      <li><span><strong>Pre-University</strong> — Sri Chaitanya PU College</span></li>
+      <li><span><strong>10th Standard</strong> — Sri Lakshmi School</span></li>
+    </ul>
+
+    <div class="lang-row">
+      <span><strong>English</strong> — Professional</span>
+      <span><strong>Kannada</strong> — Native</span>
+      <span><strong>Hindi</strong> — Conversational</span>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2 class="section-title">Let's <em>talk</em></h2>
+    <p>I'm looking for a full-stack internship. If you're hiring, email me and I'll gladly walk you through any of these projects.</p>
+    <div class="contact-links">
+      <a href="mailto:shindepreetham43@gmail.com">shindepreetham43@gmail.com</a>
+      <a href="https://github.com/preethamshinde43">github.com/preethamshinde43</a>
+    </div>
+    <div style="margin-top:22px"><a class="btn primary" href="Preetham_S_Shinde_Resume.pdf" download>↓ Download resume (PDF)</a></div>
+    <div class="fineprint">© Preetham S Shinde</div>
+  </footer>
+</div>
+
+</body>
+</html>
